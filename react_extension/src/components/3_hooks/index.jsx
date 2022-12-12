@@ -48,7 +48,10 @@ function Demo(){
 
 	const [count,setCount] = React.useState(0)
 	const myRef = React.useRef()
-
+	// useEffect相当于class组件内的DidMount, Didupdate， WillUnmount生命周期
+	// 他接受两个参数，一个函数，一个数组， 如果只传入一个函数则两个生命周期都生效
+	// []内可以写如当前函数的state项，数据和Didupdate生命周期对应，便是监视对应的项，如果不传则Didupdate生命周期不会调用
+	// 它还可以return一个函数，表示willUnmount钩子
 	React.useEffect(()=>{
 		let timer = setInterval(()=>{
 			setCount(count => count+1 )
